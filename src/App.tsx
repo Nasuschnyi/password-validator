@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Password } from './types/Password';
+import PasswordValidator from './components/PasswordValidator';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const passwords: Password[] = [
+	{ requirement: { symbol: 'a', min: 1, max: 5 }, password: 'abcdj' },
+	{ requirement: { symbol: 'z', min: 2, max: 4 }, password: 'asfalseiruqwo' },
+	{ requirement: { symbol: 'b', min: 3, max: 6 }, password: 'bhhkkbbjjjb' },
+];
+
+const App: React.FC = () => {
+	return (
+		<>
+			<PasswordValidator passwords={passwords} />
+		</>
+	);
+};
 
 export default App;
